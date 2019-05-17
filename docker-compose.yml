@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  web-app:
+    image: python
+    build: .
+    container_name: condo_app
+    expose:
+      - "6000"
+    ports:
+      - "6000:6000"
+    volumes:
+      - .:/home
+    environment:
+      LC_ALL: "C.UTF-8"
+      LANG: "C.UTF-8"
+    # depends_on:
+    #   - db
+    # networks: ['mynetwork']
+
+  # db:
+  #   image: postgres
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     POSTGRES_PASSWORD: mysecretpassword
+  #     POSTGRES_USER: dipesh
+  #     POSTGRES_DB: condo_app
+  #   networks: 
+  #     - mynetwork
+
+# networks: 
+#   mynetwork:

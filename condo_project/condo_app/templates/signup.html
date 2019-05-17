@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    {{ form.non_field_errors }}
+     <div class=“fieldWrapper”>
+     {{ form.email.errors }}
+     <label for=“{{ form.email.id_for_label }}“>Email Address: </label>
+     
+     {{ form.email }}
+     
+     </div>
+     <div class=“fieldWrapper”>
+     {{ form.f_name.errors }}
+     <label for=“{{ form.f_name.id_for_label }}“>First Name: </label>
+     {{ form.f_name }}
+     </div>
+     <div class=“fieldWrapper”>
+     {{ form.l_name.errors }}
+     <label for=“{{ form.l_name.id_for_label }}“>Last Name: </label>
+     {{ form.l_name }}
+     </div>
+     <div class=“fieldWrapper”>
+     {{ form.condo_name.errors }}
+     <label for=“{{ form.condo_name.id_for_label }}“>Condominium Name: </label>
+     {{ form.condo_name }}
+     </div>
+     <div class=“fieldWrapper”>
+     {{ form.unit_floor.errors }}
+     <label for=“{{ form.unit_floor.id_for_label }}“>Unit No: #</label>
+     {{ form.unit_floor }}
+     {{ form.unit_unit.errors }}
+     <label for=“{{ form.unit_floor.id_for_label }}“> - </label>
+     {{ form.unit_unit }}
+     </div>
+    </div>
+
+
+    <button type="submit">Sign up</button>
+  </form>
+{% endblock %}
