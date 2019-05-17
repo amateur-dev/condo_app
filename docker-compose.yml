@@ -5,9 +5,9 @@ services:
     build: .
     container_name: condo_app
     expose:
-      - "6000"
+      - "5000"
     ports:
-      - "6000:6000"
+      - "5000:5000"
     volumes:
       - .:/home
     environment:
