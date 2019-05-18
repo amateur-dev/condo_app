@@ -8,9 +8,10 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(_('email address'), unique=True)
-    f_name = models.CharField(max_length=64,blank=False, null=True)
-    l_name = models.CharField(max_length=64,blank=False, null=True)
+    email = models.EmailField(
+        verbose_name='email address', max_length=255, unique=True)
+    f_name = models.CharField(max_length=64, blank=False, null=True)
+    l_name = models.CharField(max_length=64, blank=False, null=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
@@ -25,4 +26,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.email
+        return self.f_name
+
+    def has_perm(self, perm, obj=None):
+        "Does the user have a specific permission?"
+        return True

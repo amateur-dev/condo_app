@@ -125,5 +125,7 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+LOGIN_REDIRECT_URL = 'mainLandingPage'
+LOGOUT_REDIRECT_URL = 'mainLandingPage'
 
 AUTH_USER_MODEL = 'condo_app.CustomUser'

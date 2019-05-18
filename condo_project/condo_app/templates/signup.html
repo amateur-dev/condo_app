@@ -1,44 +1,55 @@
 {% extends 'base.html' %}
 
 {% block body %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    <div class="form-group">
+<h2>Sign up</h2>
+<form method="post">
+  {% csrf_token %}
+  <!-- {{ form.as_p }} -->
+  <div class="control-group">
     {{ form.non_field_errors }}
-     <div class=“fieldWrapper”>
-     {{ form.email.errors }}
-     <label for=“{{ form.email.id_for_label }}“>Email Address: </label>
-     
-     {{ form.email }}
-     
-     </div>
-     <div class=“fieldWrapper”>
-     {{ form.f_name.errors }}
-     <label for=“{{ form.f_name.id_for_label }}“>First Name: </label>
-     {{ form.f_name }}
-     </div>
-     <div class=“fieldWrapper”>
-     {{ form.l_name.errors }}
-     <label for=“{{ form.l_name.id_for_label }}“>Last Name: </label>
-     {{ form.l_name }}
-     </div>
-     <div class=“fieldWrapper”>
-     {{ form.condo_name.errors }}
-     <label for=“{{ form.condo_name.id_for_label }}“>Condominium Name: </label>
-     {{ form.condo_name }}
-     </div>
-     <div class=“fieldWrapper”>
-     {{ form.unit_floor.errors }}
-     <label for=“{{ form.unit_floor.id_for_label }}“>Unit No: #</label>
-     {{ form.unit_floor }}
-     {{ form.unit_unit.errors }}
-     <label for=“{{ form.unit_floor.id_for_label }}“> - </label>
-     {{ form.unit_unit }}
-     </div>
+    <div class=“fieldWrapper”>
+      {{ form.email.errors }}
+      <label for="{{ form.email.id_for_label }}">Email Address: </label>
+
+      {{ form.email }}
+
     </div>
+    <div class=“fieldWrapper”>
+      {{ form.f_name.errors }}
+      <label for="{{ form.f_name.id_for_label }}">First Name: </label>
+      {{ form.f_name }}
+    </div>
+    <div class=“fieldWrapper”>
+      {{ form.l_name.errors }}
+      <label for="{{ form.l_name.id_for_label }}">Last Name: </label>
+      {{ form.l_name }}
+    </div>
+    <div class=“fieldWrapper”>
+      {{ form.condo_name.errors }}
+      <label for="{{ form.condo_name.id_for_label }}">Condominium Name: </label>
+      {{ form.condo_name }}
+    </div>
+    <div class=“fieldWrapper”>
+      {{ form.unit_floor.errors }}
+      <label for="{{ form.unit_floor.id_for_label }}">Unit No: #</label>
+      {{ form.unit_floor }}
+      {{ form.unit_unit.errors }}
+      <label for="{{ form.unit_floor.id_for_label }}"> - </label>
+      {{ form.unit_unit }}
+    </div>
+    <div class=“fieldWrapper”>
+      {{ form.password1.errors }}
+      <label for="{{ form.password1.id_for_label }}">Password: </label>
+      {{ form.password1 }}
+    </div>
+    <div class=“fieldWrapper”>
+      {{ form.password2.errors }}
+      <label for="{{ form.password2.id_for_label }}"> Confirm Password: </label>
+      {{ form.password2 }}
+    </div>
+  </div>
 
 
-    <button type="submit">Sign up</button>
-  </form>
+  <button type="submit">Sign up</button>
+</form>
 {% endblock %}
