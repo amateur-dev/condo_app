@@ -14,6 +14,12 @@
 {% if user.is_authenticated %}
 <h2>Hi {{ user.f_name }}!</h2>
 <p><a href="{% url 'logout' %}">logout</a></p>
+{% if user.has_access_to_facility == True %}
+<p>You have the rights</p>
+{% else %}
+<p>You do NOT have the rights</p>
+{% endif %}
+<p></p>
 {% else %}
 <p>You are not logged in</p>
 <a href="{% url 'signup' %}">Sign-up</a><br>

@@ -26,8 +26,28 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.f_name
+        return self.email
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
         return True
+
+
+class Condo(models.Model):
+    name = models.CharField(max_length=64)
+    address = models.CharField(max_length=64)
+    superuser = models.EmailField(max_length=64, unique=True, null=True)
+
+    def __str__(self):
+        return f"{self.id}: {self.name} located at {self.address}"
+
+
+class Facility(models.Model):
+    name = models.CharField(max_length=64)
+    open_time = models.TimeField(null=True)
+    close_time = models.TimeField(null=True)
+    condo = models.ForeignKey(
+        Condo, on_delete=models.CASCADE, related_name="condo")
+
+    def __str__(self):
+        return f"{self.origin} to {self.destination} in {self.duration} mins"

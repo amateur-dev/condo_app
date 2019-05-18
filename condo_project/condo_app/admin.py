@@ -9,7 +9,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+from .models import CustomUser, Condo, Facility
 
 
 class CustomUserAdmin(UserAdmin):
@@ -26,7 +26,8 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active')}
+            'fields': ('email', 'password', 'f_name', 'l_name',
+                       'condo_name', 'unit_floor', 'unit_unit', 'has_access_to_facility')}
          ),
     )
     search_fields = ('email', 'condo_name')
@@ -35,4 +36,6 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
-admin.site.unregister(Group)
+
+admin.site.register(Condo)
+admin.site.register(Facility)
