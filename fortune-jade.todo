@@ -1,0 +1,33 @@
+In the case of Fortune-Jade:
+
+    Basic Landing Page:
+        ✔ Has the option to sign-up for a Regular User ('RegUser') @done (5/20/2019, 10:38:32 AM)
+        ✔ Has the option to login for a RegUser @done (5/20/2019, 10:39:06 AM)
+        ✔ I am the Condo_Admin (temp solution) [Has the link to visit a Condo Administrator ('CondoAdmin') option _Landing Page_] @done (5/20/2019, 10:39:43 AM)
+    
+    Sign-up/Login for a CondoAdmin (NOT REQUIRED FOR FORTUNE-JADE):
+        After Sign-Up:
+            ☐ SuperUser gets a notification through email of a new CondoAdmin Sign-Up
+            ☐ SuperUser _approves_ or rejects the request for a CondoAdmin Sign-Up
+            ☐ Upon _approval_ or _rejection_ CondoAdmin gets an email notification
+        Login for a CondoAdmin:
+            ☐ Once approved, the CodoAdmin can register for facilities that are available in the Condo
+            ☐ The CondoAdmin and _approve_ any RegUser's right to book facilities
+            ☐ The CondoAdmin and _remove_ any RegUser's right to book facilities
+    
+    Sign-up/Login for a RegUser:
+        After Sign-Up:
+            ☐ System to check that max RegUser per unit is not more than 2 (two). If less than 2:
+                ☐ The respective CondoAdmin gets a notification through email of a new RegUser Sign-Up (NOT REQUIRED FOR FORTUNE-JADE) : THIS WILL BE CHECKED BY THE GOOGLE SHEET HACK
+                ☐ CondoAdmin _approves_ or rejects the request for a RegUser Sign-Up and _approves_ / _rejects_ / _removes_  RegUser's right to book facilities (NOT REQUIRED FOR FORTUNE-JADE)
+                ☐ Upon _approval_ or _rejection_ RegUser gets an email notification (NOT REQUIRED FOR FORTUNE-JADE)
+            ☐ If already equal to 2 (not required for Fortune-Jade):
+                The new Sign-Up RegUser gets an automatic rejection email
+        Login for a CondoAdmin:
+            ☐ The RegUser can book facilities maximum 2 weeks in advance
+            ☐ The RegUser can NOT have more than 3 bookings per facility
+            ☐ The RegUser can cancel the booked facilities
+    
+    Security Guard View:
+        ☐ The Security Guard who is responsible for the lookout of the facilities is able to view which RegUser has made the booking and at what time
+            
