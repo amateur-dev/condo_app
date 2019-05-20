@@ -25,4 +25,7 @@ Sign-up/Login for a RegUser:
         ☐ The RegUser can book facilities maximum 2 weeks in advance
         ☐ The RegUser can NOT have more than 3 bookings per facility
         ☐ The RegUser can cancel the booked facilities
+
+Security Guard View:
+    ☐ The Security Guard who is responsible for the lookout of the facilities is able to view which RegUser has made the booking and at what time
         
