@@ -24,11 +24,13 @@
       <label for="{{ form.l_name.id_for_label }}">Last Name: </label>
       {{ form.l_name }}
     </div>
+    {% comment %}
     <div class=“fieldWrapper”>
       {{ form.condo_name.errors }}
       <label for="{{ form.condo_name.id_for_label }}">Condominium Name: </label>
       {{ form.condo_name }}
     </div>
+    {% endcomment %}
     <div class=“fieldWrapper”>
       {{ form.unit_floor.errors }}
       <label for="{{ form.unit_floor.id_for_label }}">Unit No: #</label>

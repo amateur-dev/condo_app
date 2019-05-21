@@ -16,7 +16,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
-    condo_name = models.CharField(max_length=64, blank=True, null=True)
+    condo_name = models.CharField(
+        max_length=64, blank=True, null=True, default="Fortune Jade")
     unit_floor = models.PositiveSmallIntegerField(blank=False, null=True)
     unit_unit = models.PositiveSmallIntegerField(blank=False, null=True)
     has_access_to_facility = models.BooleanField(default=False, null=True)
@@ -43,7 +44,7 @@ class Condo(models.Model):
         CustomUser, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.id}: {self.name} located at {self.address}"
+        return f"{self.name}"
 
 
 def create_condo(sender, instance, **kwargs):
@@ -63,4 +64,4 @@ class Facility(models.Model):
         Condo, on_delete=models.CASCADE, related_name="condo")
 
     def __str__(self):
-        return f"{self.name} | {self.condo}"
+        return f"{self.name}"
