@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from django.db.models.signals import post_save
 
 from .managers import CustomUserManager
 
@@ -32,15 +33,26 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         "Does the user have a specific permission?"
         return True
 
+    # def save[dipesh to work on this]
+
 
 class Condo(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
-    address = models.CharField(max_length=64)
+    address = models.CharField(max_length=64, blank=True, null=True)
     condo_admin = models.ForeignKey(
         CustomUser, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return f"{self.id}: {self.name} located at {self.address}"
+
+
+def create_condo(sender, instance, **kwargs):
+    if kwargs['created']:
+        condo_name_var = Condo.objects.create(name=instance.condo_name)
+        # condo_name_var is for me to make further edits if I need to.
+
+
+post_save.connect(create_condo, sender=CustomUser)
 
 
 class Facility(models.Model):
