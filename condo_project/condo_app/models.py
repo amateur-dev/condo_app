@@ -15,7 +15,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
-    condo_name = models.CharField(max_length=64, blank=False, null=True)
+    condo_name = models.CharField(max_length=64, blank=True, null=True)
     unit_floor = models.PositiveSmallIntegerField(blank=False, null=True)
     unit_unit = models.PositiveSmallIntegerField(blank=False, null=True)
     has_access_to_facility = models.BooleanField(default=False, null=True)
@@ -34,20 +34,21 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
 class Condo(models.Model):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, blank=True, null=True)
     address = models.CharField(max_length=64)
-    superuser = models.EmailField(max_length=64, unique=True, null=True)
+    condo_admin = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return f"{self.id}: {self.name} located at {self.address}"
 
 
 class Facility(models.Model):
-    name = models.CharField(max_length=64)
-    open_time = models.TimeField(null=True)
-    close_time = models.TimeField(null=True)
+    name = models.CharField(max_length=64, blank=True, null=True)
+    first_booking_time = models.TimeField(null=True)
+    last_booking_time_time = models.TimeField(null=True)
     condo = models.ForeignKey(
         Condo, on_delete=models.CASCADE, related_name="condo")
 
     def __str__(self):
-        return f"{self.origin} to {self.destination} in {self.duration} mins"
+        return f"{self.name} | {self.condo}"

@@ -4,12 +4,8 @@ from .forms import CustomUserCreationForm, CustomUserChangeForm, SignUpForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.http import HttpResponse
-
-
-# class SignUp(generic.CreateView):
-#     form_class = CustomUserCreationForm
-#     success_url = reverse_lazy('login')
-#     template_name = 'signup.html'
+from .models import Facility
+from .models import Condo
 
 
 def index(request):
