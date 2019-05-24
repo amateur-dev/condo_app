@@ -9,11 +9,13 @@ from .models import Condo
 
 
 def index(request):
+    context = {
+    }
     if request.user.is_authenticated:
         user = request.user
-    context = {
-        "facility": Facility.objects.filter(condo__name=user.condo_name),
-    }
+        context = {
+            "facility": Facility.objects.filter(condo__name=user.condo_name),
+        }
     # return HttpResponse("Hello, you are in the main landing page")
     return render(request, 'landing_page/index.html', context)
 
