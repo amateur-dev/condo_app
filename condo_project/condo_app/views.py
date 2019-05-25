@@ -14,7 +14,7 @@ def index(request):
     if request.user.is_authenticated:
         user = request.user
         context = {
-            "facility": Facility.objects.filter(condo__name=user.condo_name),
+            "facilities": Facility.objects.filter(condo__name=user.condo_name),
         }
     # return HttpResponse("Hello, you are in the main landing page")
     return render(request, 'landing_page/index.html', context)
@@ -35,3 +35,7 @@ def signup(request):
     else:
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+
+def facility(request, facility):
+    return HttpResponse(f"Hello, you are in the facility booking page of {facility}")

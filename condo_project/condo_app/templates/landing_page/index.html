@@ -12,22 +12,38 @@
 </h1>
 
 {% if user.is_authenticated %}
+
 <h2>Hi {{ user.f_name }}!</h2>
+
 {% if user.has_access_to_facility == True %}
-<p>You can book:</p>{% for f in facility %}
+<p>You can book:</p>
+
 <ul>
-    <li>{{ f }}</li>
+    {% for facility in facilities %}
+
+    <li>
+        <a href="{% url 'facility_booking' facility  %}">{{ facility }}</a>
+    </li>
+    {% endfor %}
 </ul>
-{% endfor %}
+
+
 {% else %}
 <p>Your account has not been permitted to make any bookings yet. Please approach Dipesh (dipeshsukhani@gmail.com) for
     converting your account</p>
+
 {% endif %}
+
 <p><a href="{% url 'logout' %}">logout</a></p>
+
 {% else %}
+
 <p>You are not logged in</p>
+
 <a href="{% url 'signup' %}">Sign-up</a><br>
+
 <a href="{% url 'login' %}">Login</a>
+
 {% endif %}
 
 {% endblock %}
