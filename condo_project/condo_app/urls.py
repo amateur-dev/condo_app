@@ -8,7 +8,7 @@ from . import views
 urlpatterns = [
     path('', views.index, name='mainLandingPage'),
     path('app/signup', views.signup, name='signup'),
-    path('app/try/<str:facility>',
+    path('app/<str:facility>',
          views.facility, name='facility_booking'),
     path('app/', include(
         'django.contrib.auth.urls')),

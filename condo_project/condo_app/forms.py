@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import Group
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+import datetime
 
 from .models import CustomUser
 
@@ -56,3 +57,19 @@ class SignUpForm(UserCreationForm):
         model = CustomUser
         fields = ('email', 'f_name', 'l_name',
                   'condo_name', 'unit_floor', 'unit_unit')
+
+
+# class NameForm(forms.Form):
+#     # your_name = forms.CharField(label='Your name', max_length=100)
+#     date = forms.DateField(
+#         input_formats=['%d/%m/%Y'],
+#         widget=forms.DateInput(attrs={
+#             'data-target': '#datepicker1'
+#         })
+#     )
+#     time = forms.TimeField(
+#         input_formats=['%H:%M'],
+#         widget=forms.TimeInput(attrs={
+#             'data-target': '#timepicker1'
+#         })
+#     )

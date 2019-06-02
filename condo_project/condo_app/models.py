@@ -20,7 +20,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         max_length=64, blank=True, null=True, default="Fortune Jade")
     unit_floor = models.PositiveSmallIntegerField(blank=False, null=True)
     unit_unit = models.PositiveSmallIntegerField(blank=False, null=True)
-    has_access_to_facility = models.BooleanField(default=False, null=True)
+    has_access_to_facility = models.NullBooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
